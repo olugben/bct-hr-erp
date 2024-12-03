@@ -3,12 +3,12 @@ const pool = require('../db');
 const addEmployee = async (req, res) => {
     const { name, email, department, role, joining_date, salary } = req.body;
 
-    // Debugging: Log the received data
+   
     console.log(req.body);
 
     // Basic validation
     if (!name || !email || !department || !role || !joining_date || !salary) {
-        return res.status(400).json({ error: 'Please provide all required fields: name, email, department, role, joining date, salary' });
+        return res.status(400).json({ error: 'Provide all required fields: name, email, department, role, joining date, salary' });
     }
 
     try {

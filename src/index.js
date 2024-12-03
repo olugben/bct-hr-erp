@@ -3,11 +3,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 const pool = require('./db');
+const cors = require('cors');
 const employeeRoutes = require('./routes/employeeRoutes');
 const app = express();
 const port = 4000;
 
 app.use(bodyParser.json());
+app.use(cors())
 app.use('/api', authRoutes);
 app.use("/api", employeeRoutes)
 app.get("/test-db", async (req, res) => {
